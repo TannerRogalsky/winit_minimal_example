@@ -166,13 +166,18 @@ pub fn main() {
         gl.clear_color(0.0, 0.0, 0.0, 1.0);
     }
 
+    let mut prev = instant::Instant::now();
+    let mut time = std::time::Duration::default();
+
     event_loop.run(move |event, _event_loop, control_flow| {
         *control_flow = ControlFlow::Wait;
 
         match event {
             Event::WindowEvent { event, window_id: _window_id } => match event {
                 WindowEvent::RedrawRequested => {
-                    let t = instant::now() as f32 / 1000.0;
+                    time += prev.elapsed();
+                    prev = instant::Instant::now();
+                    let t = time.as_millis() as f32 / 1000.0;
                     let a = t.sin().powi(2);
                     let b = (t + std::f32::consts::PI * (1.0 / 3.0)).sin().powi(2);
                     let c = (t + std::f32::consts::PI * (2.0 / 3.0)).sin().powi(2);
