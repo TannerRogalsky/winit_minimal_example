@@ -21,5 +21,4 @@ instant = { version = "0.1", features = [ "wasm-bindgen", "now" ] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies.winit]
 git = "https://github.com/rust-windowing/winit.git"
-branch = "web"
 features = ["web-sys"]
