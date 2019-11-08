@@ -15,10 +15,10 @@ glutin = "0.22.0-alpha3"
 instant = { version = "0.1", features = ["now"] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
-wasm-bindgen = "0.2.50"
-web-sys = "0.3.28"
+wasm-bindgen = "0.2"
+web-sys = "0.3"
 instant = { version = "0.1", features = [ "wasm-bindgen", "now" ] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies.winit]
-git = "https://github.com/rust-windowing/winit.git"
+winit = "0.20.0-alpha4"
 features = ["web-sys"]
